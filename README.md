@@ -21,16 +21,20 @@ public class Config {
     // ...
 }
 ```
-Then, add your config instance variable to your class of choice, specify the name of the config.  
-Naming the configuration, uniquely identifies it (behind the scenes it's the file that is generated, containing a json representation of the object).
-So "config" would be "{configDirectory}/config.config"
+Then, add your config instance variable to your class of
+choice, specify the name of the config. Naming the
+configuration, uniquely identifies it (behind the scenes
+it's the file that is generated, containing a json
+representation of the object). So "config" would be
+"{configDirectory}/config.config"
 ```java
 public class App {
     @Configuration(name = "config")
     private static Config config;
 }
 ```
-Make sure to use the load() method on the ConfigLoader class to instantiate the ```@Configuration``` variables for you
+Make sure to use the load() method on the ConfigLoader class
+to instantiate the ```@Configuration``` variables for you
 ```java
 public class App {
     public static void main(String[] args) {
@@ -43,10 +47,16 @@ public class App {
     }
 }
 ```
-The ConfigLoader.load() method does not just load the variables in the class you run it in. You can run the method anywhere and all variables annotated with ```@Configuration``` will be loaded or created if they do not already exist.  
+The ConfigLoader.load() method does not just load the
+variables in the class you run it in. You can run the
+method anywhere and all variables annotated with
+```@Configuration``` will be loaded or created, if they
+do not already exist.  
   
-Save the changes you've made using this method, again, like with the load() method this works for the entire classpath.
-This method is not needed. A Shutdown Hook is registered so a configs are saved on shutdown
+Save the changes you've made using this method, again,
+like with the load() method this works for the entire
+classpath. This method is not needed. A Shutdown Hook
+is registered so a configs are saved on shutdown
 ```java
 public class App {
     public static void main(String[] args) {
@@ -58,7 +68,8 @@ public class App {
 ```
 ### Advanced Use
 #### Modifiers
-Add modifiers to the configuration that will be applied to it when loading and saving.  
+Add modifiers to the configuration, they will be applied
+to it when loading and saving.  
 For example, make the config not readable
 ```java
 public class App {
@@ -100,7 +111,7 @@ multiple models wanting different ways of serializing the
 same type of object.
 
 #### Adding Descriptions
-If your Config Model requires editing the config directory.
+If your Config Model requires editing via the config directory.
 In other words, the user editing the .config json file. Then
 it might be useful to have a description of what values are
 acceptable.
@@ -108,11 +119,9 @@ acceptable.
 ### Spring Boot
 This library can be used in conjunction with Spring Boot. The additional module
 provides a PostConstruct method to automatically load the configs on startup.
-* **build.gradle**
 ```gradle
 compile 'org.bitbucket.srbarber1997:configuration-spring:+'
 ```
-* **pom.xml**
 ```xml
 <dependency>
     <groupId>org.bitbucket.srbarber1997</groupId>
@@ -120,7 +129,13 @@ compile 'org.bitbucket.srbarber1997:configuration-spring:+'
 </dependency>
 ```
 #### Configure
-When using Spring Boot you can configure how the Config Loader loads. Add the options to the application.properties
+When using Spring Boot you can configure how the
+Config Loader loads. Add the options to the
+application.properties or application.yml
+```properties
+configuration.auto-load=false
+configuration.log-output=false
+```
 ```yml
 configuration:
     auto-load: false
