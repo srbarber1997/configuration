@@ -136,7 +136,7 @@ application.properties or application.yml
 configuration.auto-load=false
 configuration.log-output=false
 ```
-```yml
+```yaml
 configuration:
     auto-load: false
     log-output: false
