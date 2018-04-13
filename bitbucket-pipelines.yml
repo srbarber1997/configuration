@@ -7,4 +7,4 @@ pipelines:
           - gradle
         script:
           - bash gradlew --version
-          - bash gradlew build -x test
+          - bash gradlew clean build
