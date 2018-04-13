@@ -11,7 +11,7 @@ import java.util.List;
 public class TestConfigWithConfigure {
 
     @ConfigureSerializer
-    public static void configureHigh(GsonBuilder gsonBuilder) {
+    public static void configure(GsonBuilder gsonBuilder) {
         gsonBuilder.setPrettyPrinting();
     }
 
