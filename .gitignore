@@ -2,7 +2,5 @@
 .idea/
 *.iml
 .DS_Store
-gradlew
 gradlew.bat
-/gradle
 .gradle
