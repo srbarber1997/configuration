@@ -23,7 +23,7 @@ public class Config {
 ```
 Then, add your config instance variable to your class of choice, specify the name of the config.  
 Naming the configuration, uniquely identifies it (behind the scenes it's the file that is generated, containing a json representation of the object).
-So "config" would be "{configDirectory/config.config"
+So "config" would be "{configDirectory}/config.config"
 ```java
 public class App {
     @Configuration(name = "config")
