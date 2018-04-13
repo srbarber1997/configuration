@@ -83,10 +83,11 @@ public class ConfigLoader {
      * @see ConfigLoader#configure()
      * @see ConfigLoader#distribute()
      */
-    public static void load() {
+    public static void load(boolean log) {
         if (hasLoaded())
             return;
 
+        logger.setLog(log);
         logger.log("---------------------------------");
         logger.log(" Loading configurations...       ");
         logger.log("---------------------------------");
@@ -101,6 +102,10 @@ public class ConfigLoader {
         Runtime.getRuntime().addShutdownHook(
             new Thread(ConfigLoader::save, "Config Loader Shutdown Hook")
         );
+    }
+
+    public static void load() {
+        load(true);
     }
 
     /**

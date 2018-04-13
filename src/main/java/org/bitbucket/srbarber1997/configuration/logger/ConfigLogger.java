@@ -8,17 +8,24 @@ public class ConfigLogger {
     private static DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss:SSS");
 
+    private boolean log = true;
+
     public void log(String message) {
-        System.out.println(
+        if (log) System.out.println(
                 "[" + LocalDateTime.now().format(formatter) + "]"
                 + " [Config Loader] " + message);
     }
 
     public void error(Exception e) {
-        e.printStackTrace();
+        if (log)
+            e.printStackTrace();
     }
 
     public static void setFormatter(DateTimeFormatter formatter) {
         ConfigLogger.formatter = formatter;
+    }
+
+    public void setLog(boolean log) {
+        this.log = log;
     }
 }
