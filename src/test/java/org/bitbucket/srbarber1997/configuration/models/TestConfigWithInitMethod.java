@@ -7,6 +7,10 @@ public class TestConfigWithInitMethod {
     private int number = 9;
     private static Throwable throwable = null;
 
+    public TestConfigWithInitMethod() {
+        number = 9;
+    }
+
     public void init() throws Throwable {
         number += 1;
 

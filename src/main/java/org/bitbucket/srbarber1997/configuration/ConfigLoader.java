@@ -2,9 +2,12 @@ package org.bitbucket.srbarber1997.configuration;
 
 import com.google.common.annotations.Beta;
 import com.google.common.io.Files;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import org.bitbucket.srbarber1997.configuration.logger.ConfigLogger;
+import org.bitbucket.srbarber1997.configuration.serialise.SelfDeserializable;
+import org.bitbucket.srbarber1997.configuration.serialise.SelfSerializable;
 import org.bitbucket.srbarber1997.configuration.util.Scrambler;
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
@@ -141,10 +144,10 @@ public class ConfigLoader {
                 BufferedWriter buff = new BufferedWriter(new FileWriter(
                         directory.toString() + "/" + configuration.name() + ".config"
                 ));
-                buff.write(applyOutboundProperties(configuration, configureSerializer(o.getClass()).create().toJson(o)));
+                buff.write(applyOutboundProperties(configuration, serialize(o)));
                 buff.flush();
                 buff.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 logger.error(e);
             }
         });
@@ -333,8 +336,8 @@ public class ConfigLoader {
     private static <T> T loadInstance(String json, Class<T> objClass) {
         T obj = null;
         try {
-            obj = configureSerializer(objClass).create().fromJson(json, objClass);
-        } catch (JsonSyntaxException ignored) { }
+            obj = deserialize(json, objClass);
+        } catch (Exception ignored) { }
         if (obj == null)
             switch (objClass.getAnnotation(ConfigurationModel.class).onError()) {
                 case CREATE_DEFAULT_CONFIGURATION:
@@ -356,9 +359,9 @@ public class ConfigLoader {
                     BufferedReader buff = new BufferedReader(new InputStreamReader(resourceStream));
                     String json = buff.lines().reduce(String::concat).orElse("");
                     if (!json.equals(""))
-                        obj = configureSerializer(objClass).create().fromJson(json, objClass);
+                        obj = deserialize(json, objClass);
                 }
-            } catch (JsonSyntaxException ignored) { }
+            } catch (Exception ignored) { }
         }
         if (obj == null)
             switch (objClass.getAnnotation(ConfigurationModel.class).onError()) {
@@ -459,5 +462,21 @@ public class ConfigLoader {
                     }
                 });
         return serializer;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static  <T> T deserialize(String objString, Class<T> objClass) throws Exception {
+        if (!SelfDeserializable.class.isAssignableFrom(objClass))
+            return new Gson().fromJson(objString, objClass);
+
+        SelfDeserializable obj = (SelfDeserializable) objClass.newInstance();
+        return (T) obj.deserialize(objString);
+    }
+
+    private static String serialize(Object obj) throws Exception {
+        if (!SelfSerializable.class.isAssignableFrom(obj.getClass()))
+            return new Gson().toJson(obj);
+
+        return ((SelfSerializable)obj).serialise(obj);
     }
 }

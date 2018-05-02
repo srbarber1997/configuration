@@ -5,10 +5,7 @@ import com.google.common.io.RecursiveDeleteOption;
 import com.google.gson.Gson;
 import org.bitbucket.srbarber1997.configuration.ConfigLoader;
 import org.bitbucket.srbarber1997.configuration.Configuration;
-import org.bitbucket.srbarber1997.configuration.models.TestConfig;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod;
+import org.bitbucket.srbarber1997.configuration.models.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -160,4 +157,12 @@ public class ConfigLoaderTest {
     @Configuration(name = "configure test")
     private static TestConfigWithConfigure configureConfig;
 
+    @Configuration(name = "serializer test")
+    private static SerialiserConfig serialiserConfig;
+
+    @Test
+    public void testSerializerIsCalled() {
+        ConfigLoader.save();
+        assertTrue(serialiserConfig.called);
+    }
 }
