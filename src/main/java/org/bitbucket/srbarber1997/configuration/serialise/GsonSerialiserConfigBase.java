@@ -13,12 +13,18 @@ public abstract class GsonSerialiserConfigBase
 
     @Override
     public Object deserialize(String objString, Class<?> objClass) {
-        return this.serializer(new GsonBuilder()).create().fromJson(objString, objClass);
+        GsonBuilder builder = this.serializer(new GsonBuilder());
+        if (builder == null)
+            builder = new GsonBuilder();
+        return builder.create().fromJson(objString, objClass);
     }
 
     @Override
     public String serialise(Object obj) {
-        return this.serializer(new GsonBuilder()).create().toJson(obj);
+        GsonBuilder builder = this.serializer(new GsonBuilder());
+        if (builder == null)
+            builder = new GsonBuilder();
+        return builder.create().toJson(obj);
     }
 
     /**

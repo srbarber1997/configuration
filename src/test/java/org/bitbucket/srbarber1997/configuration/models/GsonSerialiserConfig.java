@@ -1,6 +1,7 @@
 package org.bitbucket.srbarber1997.configuration.models;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.bitbucket.srbarber1997.configuration.ConfigurationModel;
 import org.bitbucket.srbarber1997.configuration.serialise.GsonSerialiserConfigBase;
 import org.bitbucket.srbarber1997.configuration.serialise.SelfDeserializable;
@@ -16,6 +17,11 @@ public class GsonSerialiserConfig extends GsonSerialiserConfigBase {
         if (obj == this)
             called = true;
         return super.serialise(obj);
+    }
+
+    @Override
+    public GsonBuilder serializer(GsonBuilder gsonBuilder) {
+        return gsonBuilder;
     }
 
     @Override
