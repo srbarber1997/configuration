@@ -39,4 +39,17 @@ public @interface ConfigurationModel {
      * @return Outcome when an error occurs
      */
     Outcome onError() default Outcome.THROW_EXCEPTION;
+
+    /**
+     * Determines whether the init method of this {@link ConfigurationModel}
+     * should be called when {@link ConfigLoader#reload()} is called. Or just
+     * when {@link ConfigLoader#load()} is called.
+     * @return boolean:
+     * The 'init' method is called on:
+     * |       | Load | Reload |
+     * |-------|------|--------|
+     * | true  |  Yes |  Yes   |
+     * | false |  Yes |   No   |
+     */
+    boolean initOnReload() default true;
 }
