@@ -13,9 +13,10 @@ public interface SelfSerializable extends Serializable {
 
     /**
      * Method used to serialise this object when {@link ConfigLoader#save()}
-     * @param obj to be serialised. For the implementing class is would be {@code this}
+     * @param obj to be serialised. For the implementing class it would be {@code this}
+     *            although 'obj' should be used NOT 'this'
      * @return string representation of the given object
-     * @throws Exception if the serializer throws an exception
+     * @throws Exception if the object could not be serialised
      */
     String serialise(Object obj) throws Exception;
 }
