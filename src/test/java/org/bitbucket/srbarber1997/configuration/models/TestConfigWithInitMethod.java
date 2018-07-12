@@ -22,6 +22,10 @@ public class TestConfigWithInitMethod {
         return number;
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public static void setThrowable(Throwable throwable) {
         TestConfigWithInitMethod.throwable = throwable;
     }

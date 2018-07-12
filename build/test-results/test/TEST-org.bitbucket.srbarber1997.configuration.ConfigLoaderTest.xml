@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" tests="8" skipped="0" failures="1" errors="0" timestamp="2018-07-12T17:53:47" hostname="Simons-MacBook-Air.local" time="0.212">
+  <properties/>
+  <testcase name="testDirectoryConfigs" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.018"/>
+  <testcase name="testSerializerIsCalled" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.014"/>
+  <testcase name="testInitMethodCall" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.041">
+    <failure message="java.lang.AssertionError: expected:&lt;10&gt; but was:&lt;11&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;10&gt; but was:&lt;11&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at org.bitbucket.srbarber1997.configuration.ConfigLoaderTest.testInitMethodCall(ConfigLoaderTest.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:114)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:57)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:108)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:146)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:128)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+</failure>
+  </testcase>
+  <testcase name="testLoadsConfigurationsFromModelToFields" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.052"/>
+  <testcase name="testLoadedConfigsAreSingletons" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.018"/>
+  <testcase name="testApplyProperties" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.013"/>
+  <testcase name="testDefaultResource" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.013"/>
+  <testcase name="testSaving" classname="org.bitbucket.srbarber1997.configuration.ConfigLoaderTest" time="0.041"/>
+  <system-out><![CDATA[[12/07/2018 06:53:46:668] [Config Loader] ---------------------------------
+[12/07/2018 06:53:46:678] [Config Loader]  Loading configurations...       
+[12/07/2018 06:53:46:678] [Config Loader] ---------------------------------
+[12/07/2018 06:53:46:680] [Config Loader] Setting up...
+[12/07/2018 06:53:47:024] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfig2
+[12/07/2018 06:53:47:025] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:025] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:026] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfigsWithDescription
+[12/07/2018 06:53:47:026] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:026] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:027] [Config Loader]  - Found configuration model: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:034] [Config Loader]  - Found configuration field: configWithInit in ConfigLoaderTest
+[12/07/2018 06:53:47:035] [Config Loader]  - Found configuration field: config1 in ConfigLoaderTest
+[12/07/2018 06:53:47:035] [Config Loader]  - Found configuration field: serialiserConfig in ConfigLoaderTest
+[12/07/2018 06:53:47:035] [Config Loader]  - Found configuration field: propertyTestConfig in ConfigLoaderTest
+[12/07/2018 06:53:47:036] [Config Loader]  - Found configuration field: dirConfig3 in ConfigLoaderTest
+[12/07/2018 06:53:47:036] [Config Loader]  - Found configuration field: dirWithDirConfig in ConfigLoaderTest
+[12/07/2018 06:53:47:036] [Config Loader]  - Found configuration field: configWithDefault in ConfigLoaderTest
+[12/07/2018 06:53:47:037] [Config Loader]  - Found configuration field: config2 in ConfigLoaderTest
+[12/07/2018 06:53:47:038] [Config Loader]  - Found configuration field: config3 in ConfigLoaderTest
+[12/07/2018 06:53:47:039] [Config Loader]  - Found configuration field: configureConfig in ConfigLoaderTest
+[12/07/2018 06:53:47:040] [Config Loader]  - Found configuration field: dirConfig2 in ConfigLoaderTest
+[12/07/2018 06:53:47:040] [Config Loader]  - Found configuration field: dirConfig1 in ConfigLoaderTest
+[12/07/2018 06:53:47:044] [Config Loader] Configuring...
+[12/07/2018 06:53:47:044] [Config Loader]  - Generated config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:058] [Config Loader]  - Generated configuration file: init.config
+[12/07/2018 06:53:47:064] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:065] [Config Loader]  - Generated configuration file: test1.config
+[12/07/2018 06:53:47:066] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:067] [Config Loader]  - Generated configuration file: serializer test.config
+[12/07/2018 06:53:47:068] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:069] [Config Loader]  - Generated configuration file: apply properties.config
+[12/07/2018 06:53:47:070] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:071] [Config Loader]  - Generated configuration file: myDir/config3.config
+[12/07/2018 06:53:47:072] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:076] [Config Loader]  - Generated configuration file: dir1/dir2/.config
+[12/07/2018 06:53:47:078] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:079] [Config Loader]  - Generated configuration file: testWithDefault.config
+[12/07/2018 06:53:47:171] [Config Loader]  - Loaded default resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:172] [Config Loader]  - Generated configuration file: test2.config
+[12/07/2018 06:53:47:174] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:177] [Config Loader]  - Generated configuration file: configure test.config
+[12/07/2018 06:53:47:178] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:179] [Config Loader]  - Generated configuration file: myDir/config2.config
+[12/07/2018 06:53:47:180] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:181] [Config Loader]  - Generated configuration file: myDir/config1.config
+[12/07/2018 06:53:47:181] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:182] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:183] [Config Loader] Distributing...
+[12/07/2018 06:53:47:184] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:185] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:185] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:186] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:186] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:187] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:187] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:188] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:190] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:191] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:191] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:192] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:193] [Config Loader] ---------------------------------
+[12/07/2018 06:53:47:194] [Config Loader]  Finished loading configurations 
+[12/07/2018 06:53:47:194] [Config Loader] ---------------------------------
+[12/07/2018 06:53:47:200] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:200] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:201] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:201] [Config Loader] Configuring...
+[12/07/2018 06:53:47:201] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:202] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:202] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:203] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:203] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:204] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:206] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:207] [Config Loader]  - Loaded default resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:209] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:209] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:210] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:210] [Config Loader]  - Generated resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:211] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:211] [Config Loader] Distributing...
+[12/07/2018 06:53:47:211] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:212] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:212] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:212] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:213] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:213] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:213] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:214] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:214] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:215] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:215] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:215] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:215] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:216] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:216] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:232] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:233] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:233] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:233] [Config Loader] Configuring...
+[12/07/2018 06:53:47:233] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:234] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:236] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:237] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:239] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:242] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:243] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:245] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:247] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:249] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:253] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:256] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:258] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:260] [Config Loader] Distributing...
+[12/07/2018 06:53:47:261] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:262] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:262] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:262] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:263] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:264] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:266] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:267] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:267] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:267] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:268] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:268] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:269] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:270] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:270] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:274] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:274] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:274] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:274] [Config Loader] Configuring...
+[12/07/2018 06:53:47:274] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:276] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:276] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:277] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:278] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:294] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:298] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:298] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:299] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:300] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:301] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:323] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:323] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:324] [Config Loader] Distributing...
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:324] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:325] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:325] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:325] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:327] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:327] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:327] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:327] [Config Loader] Configuring...
+[12/07/2018 06:53:47:327] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:328] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:329] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:329] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:330] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:333] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:334] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:335] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:336] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:337] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:338] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:339] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:340] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:340] [Config Loader] Distributing...
+[12/07/2018 06:53:47:340] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:341] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:342] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:343] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:343] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:344] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:344] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:345] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:345] [Config Loader] Configuring...
+[12/07/2018 06:53:47:345] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:346] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:346] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:347] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:348] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:349] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:350] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:350] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:350] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:351] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:351] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:351] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:352] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:352] [Config Loader] Distributing...
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:352] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:354] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:354] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:354] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:355] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:356] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:356] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:356] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:357] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:358] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:358] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:358] [Config Loader] Configuring...
+[12/07/2018 06:53:47:358] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:359] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:360] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:360] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:361] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:362] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:362] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:363] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:364] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:365] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:366] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:367] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:367] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:368] [Config Loader] Distributing...
+[12/07/2018 06:53:47:368] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:368] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:368] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:368] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:369] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:369] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:369] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:369] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:369] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:370] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:370] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:370] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:370] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:370] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:370] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:371] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:371] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:371] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:371] [Config Loader] Configuring...
+[12/07/2018 06:53:47:372] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:377] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:378] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:378] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:379] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:379] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:380] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:380] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:381] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:382] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:382] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:383] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:385] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:386] [Config Loader] Distributing...
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:386] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:387] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:387] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:387] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:387] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:387] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:398] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:399] [Config Loader]  Reloading configurations...       
+[12/07/2018 06:53:47:399] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:399] [Config Loader] Configuring...
+[12/07/2018 06:53:47:400] [Config Loader]  - Using config directory, found at: /Users/simon/git/configuration/configs
+[12/07/2018 06:53:47:400] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:401] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:401] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.SerialiserConfig
+[12/07/2018 06:53:47:402] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:403] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:403] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:404] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource
+[12/07/2018 06:53:47:405] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:407] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure
+[12/07/2018 06:53:47:407] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:409] [Config Loader]  - Loaded resource: org.bitbucket.srbarber1997.configuration.models.TestConfig
+[12/07/2018 06:53:47:409] [Config Loader]  - Initiated resource: org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod
+[12/07/2018 06:53:47:409] [Config Loader] Distributing...
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'init' to field 'configWithInit' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'test1' to field 'config1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'serializer test' to field 'serialiserConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'apply properties' to field 'propertyTestConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'myDir/config3' to field 'dirConfig3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:410] [Config Loader]  - Assigned resource called 'dir1/dir2/' to field 'dirWithDirConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'testWithDefault' to field 'configWithDefault' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'test2' to field 'config2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'test2' to field 'config3' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'configure test' to field 'configureConfig' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'myDir/config2' to field 'dirConfig2' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader]  - Assigned resource called 'myDir/config1' to field 'dirConfig1' in 'org.bitbucket.srbarber1997.configuration.ConfigLoaderTest
+[12/07/2018 06:53:47:411] [Config Loader] -----------------------------------
+[12/07/2018 06:53:47:411] [Config Loader]  Finished reloading configurations 
+[12/07/2018 06:53:47:411] [Config Loader] -----------------------------------
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

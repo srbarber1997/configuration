@@ -4,3 +4,4 @@ out/
 .DS_Store
 gradlew.bat
 .gradle
+configs/

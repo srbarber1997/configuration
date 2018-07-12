@@ -14,8 +14,8 @@ public abstract class GsonSerialiserConfigBase
                 .create();
 
     @Override
-    public Object deserialize(String objString) {
-        return GSON.fromJson(objString, Object.class);
+    public Object deserialize(String objString, Class<?> objClass) {
+        return GSON.fromJson(objString, objClass);
     }
 
     @Override
