@@ -5,10 +5,7 @@ import com.google.common.io.RecursiveDeleteOption;
 import com.google.gson.Gson;
 import org.bitbucket.srbarber1997.configuration.ConfigLoader;
 import org.bitbucket.srbarber1997.configuration.Configuration;
-import org.bitbucket.srbarber1997.configuration.models.TestConfig;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithConfigure;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithDefaultResource;
-import org.bitbucket.srbarber1997.configuration.models.TestConfigWithInitMethod;
+import org.bitbucket.srbarber1997.configuration.models.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,6 +13,7 @@ import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -110,6 +108,8 @@ public class ConfigLoaderTest {
 
     @Test
     public void testInitMethodCall() {
+        configWithInit.setNumber(9);
+        ConfigLoader.save();
         ConfigLoader.reload();
         assertEquals(10, configWithInit.getNumber());
 
@@ -146,18 +146,47 @@ public class ConfigLoaderTest {
     private static TestConfig dirWithDirConfig;
 
     @Test
-    public void testDirectoryConfigs() throws NullPointerException {
+    public void testDirectoryConfigs() {
         ConfigLoader.reload();
 
         File directoryWithConfigs = new File(directory.getAbsolutePath() + "/myDir");
         assertTrue(directoryWithConfigs.isDirectory());
-        assertEquals(3, directoryWithConfigs.listFiles().length);
+        assertEquals(3, Objects.requireNonNull(directoryWithConfigs.listFiles()).length);
 
         File slashAtEnd = new File(directory.getAbsolutePath() + "/dir1/dir2/.config");
         assertTrue(slashAtEnd.exists());
     }
 
-    @Configuration(name = "configure test")
-    private static TestConfigWithConfigure configureConfig;
+    @Configuration(name = "serializer test")
+    private static SerialiserConfig serialiserConfig;
 
+    @Test
+    public void testSerializerIsCalled() {
+        ConfigLoader.save();
+        assertTrue(serialiserConfig.called);
+
+        serialiserConfig.called = false;
+        ConfigLoader.reload();
+        assertTrue(serialiserConfig.called);
+    }
+
+    @Configuration(name = "gson configure test")
+    private static GsonSerialiserConfig gsonSerialiserConfig;
+
+    @Test
+    public void testGsonSerializerIsCalled() {
+        ConfigLoader.save();
+        assertTrue(gsonSerialiserConfig.called);
+
+        gsonSerialiserConfig.called = false;
+        ConfigLoader.reload();
+        assertTrue(gsonSerialiserConfig.called);
+    }
+
+    @Test
+    public void testGsonSerializerCreatesActualObject() {
+        ConfigLoader.reload();
+
+        assertEquals(GsonSerialiserConfig.class, gsonSerialiserConfig.getClass());
+    }
 }

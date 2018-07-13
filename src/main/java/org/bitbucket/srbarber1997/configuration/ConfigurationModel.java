@@ -12,6 +12,12 @@ import java.lang.annotation.Target;
  * that will be used to serialize and deserialize Configurations. Types
  * that do not declare they are {@link ConfigurationModel}s will be ignored
  * by the {@link ConfigLoader}
+ *
+ * Tips for {@link ConfigurationModel} classes:
+ *  - Any values set in the constructor may not be
+ *  used, use the 'init' method instead
+ *
+ * @see ConfigLoader#configure()
  */
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @Retention(RetentionPolicy.RUNTIME)

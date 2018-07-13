@@ -4,7 +4,7 @@ A configuration library for Java applications. Including support for SpringBoot 
 Easily define configs and load them into any class.
 
 The use of Configuration is similar to a database, except it is much more lightweight. This **should not be used instead of a database**.  
-The package provides a way of retaining data between runtime executions. If you save a value to a variable during runtime, the next time you run the jar it's not there
+The package provides a way of retaining data between runtime executions. Normally, if you save a value to a variable during runtime, the next time you run the jar it's not there. With this package you could be.
 
 ### Basic Use
 First, define your configuration model class  
@@ -50,8 +50,8 @@ public class App {
 The ConfigLoader.load() method does not just load the
 variables in the class you run it in. You can run the
 method anywhere and all variables annotated with
-```@Configuration``` will be loaded or created, if they
-do not already exist.  
+```@Configuration``` will be loaded or, if they
+do not already exist, created.  
   
 Save the changes you've made using this method, again,
 like with the load() method this works for the entire
@@ -95,18 +95,31 @@ default resource must be "readable"
 #### Configuring the Serializer
 If you require a specific way of serialising and de-serialising
 an object you will have to tell the loader how. In order to do this
-you will have to configure the Gson Serializer. For example, you may
-want the specific model to be printed as pretty json.
+you will have to implement an interface so the loader knows how to serialize your model
 ```java
 @ConfigurationModel
-public class MyConfig {
-    @ConfigureSerializer
-    public static void configure(GsonBuilder gsonBuilder) {
-        gsonBuilder.setPrettyPrinting();
+public class MyConfig implements SelfSerializable {
+    @Override
+    public String serialise(Object obj) throws Exception {
+        // obj == this; however you should always use 'obj' the serialise not 'this'
+        // return the string representation of the given object
     }
 }
 ```
-Each model must configure the serializer in order to protect
+The same is required to deserialise, however if you are using
+json you may omit this as by default the Config Loader deserialises
+an object using Gson.
+```java
+@ConfigurationModel
+public class MyConfig implements SelfSerializable {
+    @Override
+    public Object deserialize(String objString, Class<?> objClass) throws Exception {
+        // return the object that is represented by the given string    
+    }
+}
+```
+
+Each model provide it's own in order to protect
 multiple models wanting different ways of serializing the
 same type of object.
 

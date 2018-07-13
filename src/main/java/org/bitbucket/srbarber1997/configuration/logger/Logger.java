@@ -3,7 +3,7 @@ package org.bitbucket.srbarber1997.configuration.logger;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ConfigLogger {
+public class Logger {
 
     private static DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss:SSS");
@@ -22,7 +22,7 @@ public class ConfigLogger {
     }
 
     public static void setFormatter(DateTimeFormatter formatter) {
-        ConfigLogger.formatter = formatter;
+        Logger.formatter = formatter;
     }
 
     public void setLog(boolean log) {

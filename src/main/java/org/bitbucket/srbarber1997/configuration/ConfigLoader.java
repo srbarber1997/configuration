@@ -2,9 +2,11 @@ package org.bitbucket.srbarber1997.configuration;
 
 import com.google.common.annotations.Beta;
 import com.google.common.io.Files;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
-import org.bitbucket.srbarber1997.configuration.logger.ConfigLogger;
+import org.bitbucket.srbarber1997.configuration.logger.Logger;
+import org.bitbucket.srbarber1997.configuration.serialise.SelfDeserializable;
+import org.bitbucket.srbarber1997.configuration.serialise.SelfSerializable;
 import org.bitbucket.srbarber1997.configuration.util.Scrambler;
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
@@ -61,17 +63,11 @@ public class ConfigLoader {
     private static Map<Configuration, Object> configs;
 
     /**
-     * Set of methods that are used to configure the serializer,
-     * should be filtered to get the desired type
-     */
-    private static Set<Method> configureMethods;
-
-    /**
      * Directory where the config files are stored in json format
      */
     private static File directory = new File("configs/");
 
-    private static ConfigLogger logger = new ConfigLogger();
+    private static Logger logger = new Logger();
 
     /**
      * Public method used to load the configs. The method
@@ -141,10 +137,10 @@ public class ConfigLoader {
                 BufferedWriter buff = new BufferedWriter(new FileWriter(
                         directory.toString() + "/" + configuration.name() + ".config"
                 ));
-                buff.write(applyOutboundProperties(configuration, configureSerializer(o.getClass()).create().toJson(o)));
+                buff.write(applyOutboundProperties(configuration, serialize(o)));
                 buff.flush();
                 buff.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 logger.error(e);
             }
         });
@@ -190,13 +186,20 @@ public class ConfigLoader {
                 logger.log(" - Found configuration field: " + field.getName()
                         + " in " + field.getDeclaringClass().getSimpleName());
             });
-        configureMethods = ref.getMethodsAnnotatedWith(ConfigureSerializer.class);
     }
 
     /**
      * --- Configure Phase ---
      * Method that configures the configs that have been found. The method
      * decides whether to load an existing config or generate a new one.
+     *
+     * When loading a model, the order is (May be different if you
+     * are using a custom serializer, {@link SelfSerializable}):
+     * 1. Creates instance using the no-args constructor
+     * 2. Sets the fields to the default values either set in the constructor or as
+     * defined in the {@link ConfigurationModel#defaultResource()}
+     * 3. (Existing only) Overwrites default values with those from the existing model
+     * 4. Calls 'init' method of the method if one exists
      */
     private static void configure() {
         logger.log("Configuring...");
@@ -333,8 +336,8 @@ public class ConfigLoader {
     private static <T> T loadInstance(String json, Class<T> objClass) {
         T obj = null;
         try {
-            obj = configureSerializer(objClass).create().fromJson(json, objClass);
-        } catch (JsonSyntaxException ignored) { }
+            obj = deserialize(json, objClass);
+        } catch (Exception ignored) { }
         if (obj == null)
             switch (objClass.getAnnotation(ConfigurationModel.class).onError()) {
                 case CREATE_DEFAULT_CONFIGURATION:
@@ -356,9 +359,9 @@ public class ConfigLoader {
                     BufferedReader buff = new BufferedReader(new InputStreamReader(resourceStream));
                     String json = buff.lines().reduce(String::concat).orElse("");
                     if (!json.equals(""))
-                        obj = configureSerializer(objClass).create().fromJson(json, objClass);
+                        obj = deserialize(json, objClass);
                 }
-            } catch (JsonSyntaxException ignored) { }
+            } catch (Exception ignored) { }
         }
         if (obj == null)
             switch (objClass.getAnnotation(ConfigurationModel.class).onError()) {
@@ -426,38 +429,19 @@ public class ConfigLoader {
         return loaded;
     }
 
-    /**
-     * Method to configure the gson builder. Register a type adapter so
-     * when the config loader is loading, the correct gson object is created.
-     * It is used to build a gson object used to serialize and deserialize
-     * configuration objects. Define a configure method using the annotation
-     * @see ConfigureSerializer
-     * @see com.google.gson.Gson
-     * @see GsonBuilder
-     */
-    private static GsonBuilder configureSerializer(Class<?> model) {
-        final GsonBuilder serializer = new GsonBuilder();
-        configureMethods.stream()
-                .filter(method -> method.getDeclaringClass().equals(model))
-                .forEach(method -> {
-                    try {
-                        method.invoke(null, serializer);
-                    } catch (IllegalAccessException e) {
-                        logger.error(e);
-                    } catch (InvocationTargetException e) {
-                        throw new RuntimeException("'@ConfigureSerializer' method through an exception:\n\t" +
-                                e.getMessage()
-                        );
-                    } catch (IllegalArgumentException e) {
-                        throw new RuntimeException(e.getClass().getName() + ": expected a method:\n" +
-                                "\tpublic static void configure(com.google.gson.GsonBuilder gsonBuilder) {\n" +
-                                "\t\tgsonBuilder.{someMethod}\n" +
-                                "\t}"
-                        );
-                    } catch (NullPointerException e) {
-                        throw new RuntimeException("'@ConfigureSerializer' method '" + method.getName() + "' must be static");
-                    }
-                });
-        return serializer;
+    @SuppressWarnings("unchecked")
+    private static  <T> T deserialize(String objString, Class<T> objClass) throws Exception {
+        if (!SelfDeserializable.class.isAssignableFrom(objClass))
+            return new Gson().fromJson(objString, objClass);
+
+        SelfDeserializable obj = (SelfDeserializable) objClass.newInstance();
+        return (T) obj.deserialize(objString, objClass);
+    }
+
+    private static String serialize(Object obj) throws Exception {
+        if (!SelfSerializable.class.isAssignableFrom(obj.getClass()))
+            return new Gson().toJson(obj);
+
+        return ((SelfSerializable)obj).serialise(obj);
     }
 }
