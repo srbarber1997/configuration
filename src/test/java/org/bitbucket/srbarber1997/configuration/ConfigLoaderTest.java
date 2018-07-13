@@ -189,4 +189,17 @@ public class ConfigLoaderTest {
 
         assertEquals(GsonSerialiserConfig.class, gsonSerialiserConfig.getClass());
     }
+
+    @Configuration(name = "init on reload test")
+    private static TestConfigWithInitMethodOnReload onReloadInitConfig;
+
+    @Test
+    public void testInitIsNotCalledOnReload() {
+        TestConfigWithInitMethodOnReload.setThrowable(new Throwable());
+
+        // Should throw an exception if the init method is called
+        ConfigLoader.reload();
+
+        TestConfigWithInitMethodOnReload.setThrowable(null);
+    }
 }

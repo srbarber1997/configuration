@@ -257,6 +257,8 @@ public class ConfigLoader {
         });
 
         configs.forEach((configuration, o) -> {
+            if (loaded && !o.getClass().getAnnotation(ConfigurationModel.class).initOnReload())
+                return;
             // Run 'init' method if it exists
             try {
                 configs.get(configuration).getClass()
