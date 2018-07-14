@@ -1,9 +1,9 @@
-package org.bitbucket.srbarber1997.configuration.logger;
+package org.bitbucket.srbarber1997.configuration;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Logger {
+class Logger {
 
     private static DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss:SSS");
