@@ -38,18 +38,22 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
 signing {
     def signingKey = findProperty("signingKey")
     def signingPassword = findProperty("signingPassword")
     if (signingKey && signingPassword) {
+        project.logger.lifecycle("Using in-memory PGP Keys")
+
         // https://docs.gradle.org/current/userguide/signing_plugin.html
         useInMemoryPgpKeys(signingKey, signingPassword)
+    } else {
+        project.logger.info("Using keyring found at: " + findProperty("signing.secretKeyRingFile"))
     }
     sign configurations.archives
-}
-
-artifacts {
-    archives javadocJar, sourcesJar
 }
 
 uploadArchives {
