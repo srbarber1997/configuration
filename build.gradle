@@ -39,6 +39,12 @@ dependencies {
 }
 
 signing {
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+    if (signingKey && signingPassword) {
+        // https://docs.gradle.org/current/userguide/signing_plugin.html
+        useInMemoryPgpKeys(signingKey, signingPassword)
+    }
     sign configurations.archives
 }
 
@@ -52,11 +58,11 @@ uploadArchives {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: "$System.env.ossrhUsername", password: "$System.env.ossrhPassword")
+                authentication(userName: findProperty("ossrhUsername"), password: findProperty("ossrhPassword"))
             }
 
             snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: "$System.env.ossrhUsername", password: "$System.env.ossrhPassword")
+                authentication(userName: findProperty("ossrhUsername"), password: findProperty("ossrhPassword"))
             }
 
             pom.project {

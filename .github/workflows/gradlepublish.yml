@@ -18,16 +18,19 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Check Gradle Version
+      run: ./gradlew --version
 
     - name: Build with Gradle
-      run: gradle build
+      run: ./gradle build
 
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
     - name: Nexus Repository
-      run: gradle uploadArchives
+      run: ./gradle uploadArchives
       env:
-        USERNAME: ${{ secrets.ossrhUsername }}
-        PASSWORD: ${{ secrets.ossrhPassword }}
+        ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
+        ORG_GRADLE_PROJECT_ossrhUsername: ${{ secrets.ossrhUsername }}
+        ORG_GRADLE_PROJECT_ossrhPassword: ${{ secrets.ossrhPassword }}
