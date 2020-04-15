@@ -46,7 +46,7 @@ signing {
     def signingKey = findProperty("signingKey")
     def signingPassword = findProperty("signingPassword")
     if (signingKey && signingPassword) {
-        project.logger.lifecycle("Using in-memory PGP Keys")
+        project.logger.info("Using in-memory PGP Keys")
 
         // https://docs.gradle.org/current/userguide/signing_plugin.html
         useInMemoryPgpKeys(signingKey, signingPassword)
@@ -72,9 +72,9 @@ uploadArchives {
             pom.project {
                 name 'configuration'
                 packaging 'jar'
-                // optionally artifactId can be defined here
-                description ''
-                url 'http://www.example.com/example-application'
+                artifactId 'configuration'
+                description 'A configuration library for Java applications.'
+                url 'https://github.com/srbarber1997/configuration'
 
                 licenses {
                     license {
