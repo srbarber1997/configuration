@@ -26,13 +26,13 @@ jobs:
       run: ./gradlew --version
 
     - name: Build with Gradle
-      run: ./gradle build
+      run: ./gradlew build
       env:
         ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
         ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
 
     - name: Nexus Repository
-      run: ./gradle uploadArchives
+      run: ./gradlew uploadArchives
       env:
         ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
         ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
