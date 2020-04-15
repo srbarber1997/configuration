@@ -1,9 +1,10 @@
-group 'org.bitbucket.srbarber1997'
+group 'com.github.srbarber1997'
 version '1.0'
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
+apply plugin: 'signing'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -35,4 +36,51 @@ dependencies {
 //    testCompile 'org.springframework.boot:spring-boot-starter:+'
     testCompile 'org.mockito:mockito-core:1.10.19'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+signing {
+    sign configurations.archives
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: "$System.env.ossrhUsername", password: "$System.env.ossrhPassword")
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: "$System.env.ossrhUsername", password: "$System.env.ossrhPassword")
+            }
+
+            pom.project {
+                name 'configuration'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description ''
+                url 'http://www.example.com/example-application'
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'srbarber1997'
+                        name 'Simon Barber'
+                        email 'srbarber1997@gmail.com'
+                    }
+                }
+            }
+        }
+    }
 }
