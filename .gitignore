@@ -1,0 +1,8 @@
+out/
+.idea/
+*.iml
+.DS_Store
+gradlew.bat
+.gradle
+configs/
+build/
