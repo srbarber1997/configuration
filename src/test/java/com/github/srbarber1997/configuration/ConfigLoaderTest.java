@@ -4,7 +4,6 @@ import com.github.srbarber1997.configuration.models.*;
 import com.google.common.io.MoreFiles;
 import com.google.common.io.RecursiveDeleteOption;
 import com.google.gson.Gson;
-import org.bitbucket.srbarber1997.configuration.models.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

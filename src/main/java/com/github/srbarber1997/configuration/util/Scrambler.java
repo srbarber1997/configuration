@@ -10,7 +10,7 @@ public class Scrambler {
     /**
      * Key used to scramble a string
      */
-    private int key = 0;
+    private short key = 0;
 
     /**
      * Constructor used to create an integer key from a string
@@ -18,6 +18,8 @@ public class Scrambler {
     public Scrambler(String key) {
         for (char c : key.toCharArray())
             this.key += (short) c;
+
+        this.key = (short) (this.key % 128);
     }
 
     /**
@@ -29,7 +31,7 @@ public class Scrambler {
     public String scrambleCharacters(String string) {
         StringBuilder stringBuilder = new StringBuilder();
         for (char c : string.toCharArray())
-            stringBuilder.append((char) (c + key));
+            stringBuilder.append((char) (c - key));
 
         return stringBuilder.toString();
     }
@@ -45,7 +47,7 @@ public class Scrambler {
     public String unscrambleCharacters(String string) {
         StringBuilder stringBuilder = new StringBuilder();
         for (char c : string.toCharArray())
-            stringBuilder.append((char) (c - key));
+            stringBuilder.append((char) (c + key));
 
         return stringBuilder.toString();
     }

@@ -2,7 +2,6 @@ package com.github.srbarber1997.configuration.models;
 
 import com.github.srbarber1997.configuration.ConfigurationModel;
 import com.github.srbarber1997.configuration.serialise.GsonSerialiserConfigBase;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 @ConfigurationModel
